@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'super@gmail.com',
             'password' => Hash::make("12345678"),
             'entriprise_id' => 1,
-            'valide' => true,
+            'status' => true,
         ]);
 
         DB::table('entreprises')->insert([

@@ -42,8 +42,10 @@ Route::group(['prefix' => $MPrefix], function () {
 Route::group(['middleware' => 'jwt', 'prefix' => $v1Prefix], function () {
 
     // CRUD Base
-
     Route::apiResource('users', 'Api\UserController');
+
+    Route::apiResource('parkings', 'Api\ParkingController');
+
 
 });
 

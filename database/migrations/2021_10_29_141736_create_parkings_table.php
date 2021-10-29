@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntreprisesTable extends Migration
+class CreateParkingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateEntreprisesTable extends Migration
      */
     public function up()
     {
-        Schema::create('entreprises', function (Blueprint $table) {
+        Schema::create('parkings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('matricule')->unique();
-            $table->string('name');
+            $table->string('code');
+            $table->string('nom');
             $table->string('adresse');
-            $table->string('telephone');
-            $table->string('photo_url');
+            $table->string('quartier');
+            $table->string('ville');
             $table->boolean('status')->default(true);
+            $table->boolean('archive')->default(false);
+            $table->bigInteger('entriprise_id')->unsigned();
             $table->timestamps();
-
         });
     }
 
@@ -33,6 +34,6 @@ class CreateEntreprisesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entreprises');
+        Schema::dropIfExists('parkings');
     }
 }
