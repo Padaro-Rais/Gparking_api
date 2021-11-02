@@ -18,7 +18,10 @@ class CreateClientsTable extends Migration
             $table->string('code');
             $table->string('label');
             $table->double('prix');
+            $table->boolean('archive')->default(false);
             $table->bigInteger('entriprise_id')->unsigned()->nullable();
+            $table->timestamps();
+
         });
     }
 

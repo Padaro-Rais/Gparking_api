@@ -20,6 +20,7 @@ class CreateAgentsTable extends Migration
             $table->string('prenoms');
             $table->string('adresse');
             $table->string('telephone');
+            $table->string('matricule_ent');
             $table->boolean('status')->default(true);
             $table->boolean('archive')->default(false);
             $table->bigInteger('parking_id')->unsigned();

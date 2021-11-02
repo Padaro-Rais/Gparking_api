@@ -25,7 +25,9 @@ class ParkingRessource extends JsonResource
             'archive' => $this->archive,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'Entreprise' => new EntrepriseResource($this->entreprise)
+            'Entreprise' => new EntrepriseResource($this->entreprise),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

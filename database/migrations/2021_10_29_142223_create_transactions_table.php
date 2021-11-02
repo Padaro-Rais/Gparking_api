@@ -21,9 +21,11 @@ class CreateTransactionsTable extends Migration
             $table->double('prix')->nullable();
             $table->boolean('archive')->default(false);
             $table->bigInteger('agent_id')->unsigned();
-            $table->bigInteger('parking_id')->unsigned();
-            $table->bigInteger('entriprise_id')->unsigned();
+            $table->bigInteger('parking_id')->unsigned()->nullable();
+            $table->bigInteger('entriprise_id')->unsigned()->nullable();
             $table->bigInteger('client_id')->unsigned();
+            $table->timestamps();
+
         });
     }
 
