@@ -27,6 +27,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Mairie',
             'adresse' => '95, Rue N° 173 KW Tokoin-Wuiti, BP 2469, Lomé',
             'telephone' => '22 26 22 04',
+            'photo_url' => 'profiles/16277682840557hzma.jpeg',
+            'status' => true,
+
         ]);
     }
 }
