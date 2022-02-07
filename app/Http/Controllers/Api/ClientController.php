@@ -36,10 +36,8 @@ class ClientController extends Controller
         $args['error'] = false;
 
         $v = Validator::make($request->all(), [
-            'code' => 'nulable',
             'label' => 'required',
             'prix' => 'required',
-            'entriprise_id' => 'nullable',
         ]);
 
 
@@ -50,12 +48,11 @@ class ClientController extends Controller
         }
 
         $client = new client();
-        $client->code = $request->code;
         $client->label = $request->label;
         $client->prix = $request->prix;
 
         if (is_null($request->code)) {
-            $client->code = $request->label;
+            $client->code = client::getCode();
         }
         $client->save();
         return response()->json(new ClientRessource($client), 201);

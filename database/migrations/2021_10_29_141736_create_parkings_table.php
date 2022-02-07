@@ -22,7 +22,7 @@ class CreateParkingsTable extends Migration
             $table->string('ville');
             $table->boolean('status')->default(true);
             $table->boolean('archive')->default(false);
-            $table->bigInteger('entriprise_id')->unsigned();
+            $table->bigInteger('entriprise_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

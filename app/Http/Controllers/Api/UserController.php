@@ -59,19 +59,7 @@ class UserController extends Controller
         $entreprise->adresse = $request->adresse;
         $entreprise->telephone = $request->telephone;
 
-        if ($request->name) {
-            $entreprise->name = $request->name;
-        }
-        if ($request->matricule) {
-            $entreprise->matricule = $request->matricule;
-        }
-        if ($request->adresse) {
-            $entreprise->adresse = $request->adresse;
-        }
-        if ($request->telephone) {
-            $entreprise->telephone = $request->telephone;
-        }
-
+    
         if ($request->photo) {
             $name = File::image($request->photo, 'Images/profiles');
             if ($name) {
@@ -85,19 +73,6 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->entriprise_id = $entreprise->id;
-
-        if ($request->username) {
-            $user->username = $request->username;
-        }
-        if ($request->email) {
-            $user->email = $request->email;
-        }
-        if ($request->password) {
-            $user->password = $request->password;
-        }
-        if ($request->entriprise_id) {
-            $user->entriprise_id = $entreprise->id;
-        }
         $user->save();
 
         return response()->json(new UserResource($user), 201);

@@ -29,6 +29,9 @@ class UsersTableSeeder extends Seeder
             'telephone' => '22 26 22 04',
             'photo_url' => 'profiles/16277682840557hzma.jpeg',
             'status' => true,
+            'role' => '1',
+
+
 
         ]);
     }

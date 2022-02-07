@@ -41,9 +41,12 @@ class TransactionController extends Controller
             'num_plaque' => 'required',
             'date' => 'nullable',
             'agent_id' => 'required',
+            'parking_id' => 'required',
             'client_id' => 'required',
-            'agent_id' => 'required_with:agents|exists:agents,id',
-            'client_id' => 'required_with:clients|exists:clients,id',
+            'entriprise_id' => 'required',
+            // 'agent_id' => 'required_with:agents|exists:agents,id',
+            // 'client_id' => 'required_with:clients|exists:clients,id',
+
         ]);
 
         if ($v->fails()) {
@@ -58,6 +61,8 @@ class TransactionController extends Controller
         $Transaction->num_plaque = $request->num_plaque;
         $Transaction->agent_id = $request->agent_id;
         $Transaction->client_id = $request->client_id;
+        $Transaction->parking_id = $request->parking_id;
+        $Transaction->entriprise_id = $request->entriprise_id;
 
 
         if (is_null($request->code)) {
@@ -130,5 +135,13 @@ class TransactionController extends Controller
         $data = Transaction::find($id);
         $data->update(['archive' => 1]);
         return response()->json(['err' => false, 'success' => true, 'message' => 'parking archivée']);
+    }
+
+
+    public function clienttransaction($id)
+    {
+        return TransactionRessource::collection(
+            Transaction::where('archive',0)->where('entriprise_id',$id)->orderBy('created_at', 'DESC')->get()
+        );
     }
 }

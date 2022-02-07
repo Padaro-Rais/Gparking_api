@@ -9,6 +9,7 @@ return array(
     'App\\Agent' => $baseDir . '/app/Agent.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Entreprise' => $baseDir . '/app/Entreprise.php',
+    'App\\EntrepriseParking' => $baseDir . '/app/EntrepriseParking.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\File' => $baseDir . '/app/File.php',
     'App\\Http\\Controllers\\Api\\AgentController' => $baseDir . '/app/Http/Controllers/Api/AgentController.php',

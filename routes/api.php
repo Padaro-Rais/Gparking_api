@@ -52,6 +52,15 @@ Route::group(['middleware' => 'jwt', 'prefix' => $v1Prefix], function () {
 
     Route::apiResource('transactions', 'Api\TransactionController');
 
+    Route::apiResource('entrepriseparking', 'Api\EntrepriseParkingController');
+
+
+    Route::get('clientparking/{id}', 'Api\EntrepriseParkingController@clientparking');
+    Route::get('clientagent/{id}', 'Api\AgentController@clientagent');
+    Route::get('clienttransaction/{id}', 'Api\TransactionController@clienttransaction');
+
+
+
 
 });
 

@@ -22,6 +22,7 @@ class EntrepriseResource extends JsonResource
             'adresse' => $this->adresse,
             'telephone' => $this->telephone,
             'status' => $this->status,
+            'role' => $this->role,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

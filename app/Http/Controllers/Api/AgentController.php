@@ -131,4 +131,13 @@ class AgentController extends Controller
         $data->update(['archive' => 1]);
         return response()->json(['err' => false, 'success' => true, 'message' => 'parking archivée']);
     }
+
+
+
+    public function clientagent($id)
+    {
+        return AgentRessource::collection(
+            Agent::where('status',1)->where('entriprise_id',$id)->orderBy('created_at', 'DESC')->get()
+        );
+    }
 }

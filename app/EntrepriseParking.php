@@ -4,20 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class EntrepriseParking extends Model
 {
-
     protected $guarded  = [
         'id'
     ];
 
-    public function agent()
+    public function parking()
     {
-        return $this->belongsTo('App\Agent', 'agent_id');
-    }
-    public function client()
-    {
-        return $this->belongsTo('App\client', 'client_id');
+        return $this->belongsTo('App\Parking', 'parking_id');
     }
 
     public function entreprise()

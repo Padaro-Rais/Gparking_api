@@ -19,10 +19,11 @@ class CreateEntreprisesTable extends Migration
             $table->string('name');
             $table->string('adresse');
             $table->string('telephone');
-            $table->string('photo_url');
+            $table->string('photo_url')->nullable();
             $table->boolean('status')->default(true);
-            $table->timestamps();
+            $table->string('role')->nullable();
 
+            $table->timestamps();
         });
     }
 

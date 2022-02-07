@@ -37,13 +37,11 @@ class ParkingController extends Controller
         $args['error'] = false;
 
         $v = Validator::make($request->all(), [
-            'code' => 'nulable',
             'nom' => 'required',
             'adresse' => 'required',
             'quartier' => 'required',
             'ville' => 'required',
-            'entriprise_id' => 'required',
-            'entriprise_id' => 'required_with:entreprises|exists:entreprises,id',
+        
         ]);
 
         if ($v->fails()) {
@@ -58,9 +56,9 @@ class ParkingController extends Controller
         $parking->adresse = $request->adresse;
         $parking->ville = $request->ville;
         $parking->quartier = $request->quartier;
-        $parking->entriprise_id = $request->entriprise_id;
+        if($request->entriprise_id) $parking->entriprise_id = $request->entriprise_id;
         if (is_null($request->code)) {
-            $parking->code = $request->nom;
+            $parking->code = Parking::getCode();
         }
         $parking->save();
 
@@ -127,4 +125,13 @@ class ParkingController extends Controller
         $data->update(['status' => 0]);
         return response()->json(['err' => false, 'success' => true, 'message' => 'parking archivée']);
     }
+
+
+    public function clientparking($id)
+    {
+        return ParkingRessource::collection(
+            Parking::where('status',1)->where('entriprise_id',$id)->orderBy('created_at', 'DESC')->get()
+        );
+    }
+
 }
