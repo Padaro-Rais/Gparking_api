@@ -15,7 +15,6 @@ class EntrepriseResource extends JsonResource
     public function toArray($request)
     {
         return [
-
             'id' => $this->id,
             'matricule' => $this->matricule,
             'name' => $this->name,
