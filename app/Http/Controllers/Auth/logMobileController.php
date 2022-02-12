@@ -33,12 +33,10 @@ class logMobileController extends Controller
 
         $agent = Agent::where(['code' => $request->code ,'matricule_ent' => $request->matricule_ent])->get();
 
-        if ($agent === []){
+        if ($agent ==[]){
             return response()->json(['succes' => false ,'message' => "credentiels Incorects"]);
         }else{
-
             return response()->json($agent);
-
         }
 
 
