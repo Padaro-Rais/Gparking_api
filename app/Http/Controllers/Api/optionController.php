@@ -6,15 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Parking;
 use App\Entreprise;
-
+use DB;
 class optionController extends Controller
 {
     
     public function parking($id)
     {
       
-        $p = Parking::where('status',1)->where('entriprise_id',$id)->orderBy('created_at', 'DESC')->get();
-        return response()->json($p);
+
+        $result = DB::table('entreprise_parkings')
+    ->join('parkings', 'parkings.id', '=', 'entreprise_parkings.parking_id')
+    ->where('entriprise_id', $id)
+    ->get();
+        return response()->json($result);
     }
 
 
