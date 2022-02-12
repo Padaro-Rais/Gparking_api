@@ -35,9 +35,12 @@ class logMobileController extends Controller
 
         if ($agent === []){
             return response()->json(['succes' => false ,'message' => "credentiels Incorects"]);
+        }else{
+
+            return response()->json($agent);
+
         }
 
-        return response()->json($agent);
 
     }
 
