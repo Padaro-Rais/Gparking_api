@@ -16,7 +16,7 @@ class optionController extends Controller
 
         $result = DB::table('entreprise_parkings')
     ->join('parkings', 'parkings.id', '=', 'entreprise_parkings.parking_id')
-    ->where('entriprise_id', $id)
+    ->where('entreprise_parkings.entriprise_id', $id)
     ->get();
         return response()->json($result);
     }
