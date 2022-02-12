@@ -38,6 +38,9 @@ Route::group(['prefix' => $MPrefix], function () {
     Route::post('auth/loginPhoneMobile', 'Auth\AuthController@loginPhoneMobile');
 });
 
+Route::post('loginMobile', 'Auth\logMobileController@login');
+
+
 
 Route::group(['middleware' => 'jwt', 'prefix' => $v1Prefix], function () {
 
