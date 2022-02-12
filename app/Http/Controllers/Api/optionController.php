@@ -18,7 +18,7 @@ class optionController extends Controller
     ->join('parkings', 'parkings.id', '=', 'entreprise_parkings.parking_id')
     ->where('entreprise_parkings.entriprise_id', $id)
     ->get();
-        return response()->json($result);
+return response()->json(['data'=>$result]);
     }
 
 
