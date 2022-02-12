@@ -37,7 +37,7 @@ class logMobileController extends Controller
             return response()->json(['succes' => false ,'message' => "credentiels Incorects"]);
         }
 
-        return response()->json(new AgentRessource($agent), 201);
+        return response()->json($agent);
 
     }
 
