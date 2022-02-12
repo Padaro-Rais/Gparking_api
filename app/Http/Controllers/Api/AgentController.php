@@ -64,7 +64,7 @@ class AgentController extends Controller
         $Agent->entriprise_id = $request->entriprise_id;
 
         if (is_null($request->code)) {
-            $Agent->code = $request->nom;
+            $Agent->code = Agent::getCode();
         }
         $Agent->save();
         return response()->json(new AgentRessource($Agent), 201);
