@@ -30,7 +30,7 @@ class logMobileController extends Controller
             return response()->json($v->errors(), 400);
         }
 
-        $agent = Agent::where('code',$request->code)->get();
+        $agent = Agent::where(['code' => $request->code ,'matricule_ent' => $request->matricule_ent])->get();
 
         return response()->json($agent);
 
