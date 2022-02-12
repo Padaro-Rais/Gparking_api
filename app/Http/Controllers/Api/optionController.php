@@ -25,8 +25,7 @@ return response()->json(['data'=>$result]);
     public function entreprise()
     {
          $p =  Entreprise::get();
-
-        return response()->json($p);
+         return response()->json(['data'=>$p]);
     }
 
 
