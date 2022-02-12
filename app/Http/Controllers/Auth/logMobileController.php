@@ -31,7 +31,7 @@ class logMobileController extends Controller
             return response()->json($v->errors(), 400);
         }
 
-        $agent = Agent::where(['code' => $request->code ,'matricule_ent' => $request->matricule_ent])->get();
+        $agent = Agent::where(['code' => $request->code ,'matricule_ent' => $request->matricule_ent])->first();
 
         if ($agent->id){
             return response()->json(['succes' => false ,'message' => "credentiels Incorects"]);
