@@ -63,6 +63,13 @@ Route::group(['middleware' => 'jwt', 'prefix' => $v1Prefix], function () {
     Route::get('clienttransaction/{id}', 'Api\TransactionController@clienttransaction');
 
 
+    Route::get('option/parking/{id}', 'Api\optionController@parking');
+
+    Route::get('option/entreprise', 'Api\optionController@entreprise');
+
+
+
+
 
 
 });
