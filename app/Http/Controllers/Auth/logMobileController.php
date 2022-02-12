@@ -6,6 +6,7 @@ use App\Agent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\AgentRessource;
 
 class logMobileController extends Controller
 {
@@ -32,7 +33,11 @@ class logMobileController extends Controller
 
         $agent = Agent::where(['code' => $request->code ,'matricule_ent' => $request->matricule_ent])->get();
 
-        return response()->json($agent);
+        if ($agent === []){
+            return response()->json(['succes' => false ,'message' => "credentiels Incorects"]);
+        }
+
+        return response()->json(new AgentRessource($agent), 201);
 
     }
 
