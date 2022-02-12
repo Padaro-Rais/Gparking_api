@@ -10,7 +10,7 @@ use App\Entreprise;
 class optionController extends Controller
 {
     
-    public function parkings($id)
+    public function parking($id)
     {
       
         $p = Parking::where('status',1)->where('entriprise_id',$id)->orderBy('created_at', 'DESC')->get();
