@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Agent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class logMobileController extends Controller
 {
