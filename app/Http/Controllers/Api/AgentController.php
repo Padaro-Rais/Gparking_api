@@ -128,8 +128,8 @@ class AgentController extends Controller
     public function destroy($id)
     {
         $data = Agent::find($id);
-        $data->update(['archive' => 1]);
-        return response()->json(['err' => false, 'success' => true, 'message' => 'parking archivée']);
+        $data->delete();
+        return response()->json(['err' => false, 'success' => true, 'message' => 'agent archivée']);
     }
 
 
