@@ -39,8 +39,9 @@ Route::group(['prefix' => $MPrefix], function () {
 });
 
 Route::post('loginMobile', 'Auth\logMobileController@login');
-
 Route::apiResource('typeclients', 'Api\ClientController');
+Route::apiResource('transactions', 'Api\TransactionController');
+Route::get('mytransactions/{id}', 'Api\TransactionController@clienttransaction');
 
 
 Route::group(['middleware' => 'jwt', 'prefix' => $v1Prefix], function () {

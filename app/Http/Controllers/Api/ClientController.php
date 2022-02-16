@@ -19,7 +19,7 @@ class ClientController extends Controller
     public function index()
     {
         return ClientRessource::collection(
-            client::where('archive',0)->orderBy('created_at', 'DESC')->get()
+            client::where('archive',0)->get()
         );
     }
 
